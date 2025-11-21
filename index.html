@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر زيت الزيتون</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+    header { background: #2e7d32; color: white; padding: 20px; text-align: center; }
+    h1 { margin: 0; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+    .product { background: white; border: 1px solid #ccc; border-radius: 10px; margin: 10px; padding: 15px; width: 200px; text-align: center; }
+    .product img { width: 100%; height: auto; border-radius: 10px; }
+    button { background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #1b5e20; }
+    #cart { position: fixed; top: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 10px; }
+    #cart h3 { margin: 0 0 10px 0; }
+    #cartItems { list-style: none; padding: 0; margin: 0 0 10px 0; }
+    #cartItems li { margin-bottom: 5px; }
+    select { padding: 5px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>متجر زيت الزيتون</h1>
+</header>
+
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/150" alt="زيت زيتون بكر ممتاز">
+    <h2>زيت زيتون بكر ممتاز</h2>
+    <p>سعر: 150 جنيه</p>
+    <button onclick="addToCart('زيت زيتون بكر ممتاز',150)">أضف إلى السلة</button>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/150" alt="زيت زيتون عضوي">
+    <h2>زيت زيتون عضوي</h2>
+    <p>سعر: 200 جنيه</p>
+    <button onclick="addToCart('زيت زيتون عضوي',200)">أضف إلى السلة</button>
+  </div>
+  <!-- ممكن تضيف منتجات أخرى بنفس الشكل -->
+</div>
+
+<div id="cart">
+  <h3>السلة</h3>
+  <ul id="cartItems"></ul>
+  <p>اختر طريقة الدفع: 
+    <select id="paymentMethod">
+      <option value="cash">كاش عند التوصيل</option>
+      <option value="visa">فيزا</option>
+    </select>
+  </p>
+  <button onclick="checkout()">إرسال الطلب</button>
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price){
+    cart.push({name, price});
+    displayCart();
+  }
+
+  function displayCart(){
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.name} - ${item.price} جنيه`;
+      cartItems.appendChild(li);
+    });
+  }
+
+  function checkout(){
+    if(cart.length === 0){
+      alert('السلة فارغة!');
+      return;
+    }
+    const paymentMethod = document.getElementById('paymentMethod').value;
+    let total = cart.reduce((sum, item) => sum + item.price, 0);
+    alert(`تم إرسال الطلب!\nطريقة الدفع: ${paymentMethod}\nإجمالي السعر: ${total} جنيه\nالمنتجات:\n${cart.map(i=>i.name).join(', ')}`);
+    
+    // تصفير السلة بعد الطلب
+    cart = [];
+    displayCart();
+  }
+</script>
+
+</body>
+</html>
