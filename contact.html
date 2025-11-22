@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا - متجر زيت الزيتون</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>اتصل بنا</h1>
+</header>
+<nav>
+  <a href="index.html">الرئيسية</a>
+  <a href="products.html">المنتجات</a>
+  <a href="cart.html">السلة</a>
+  <a href="contact.html">اتصل بنا</a>
+</nav>
+<div class="container">
+  <h2>تواصل معنا</h2>
+  <form onsubmit="contactForm(event)">
+    <input type="text" id="name" placeholder="اسمك" required style="width:100%;padding:8px;margin:5px 0;">
+    <input type="email" id="email" placeholder="بريدك الإلكتروني" required style="width:100%;padding:8px;margin:5px 0;">
+    <textarea id="message" placeholder="رسالتك" required style="width:100%;padding:8px;margin:5px 0;"></textarea>
+    <button type="submit">إرسال</button>
+  </form>
+</div>
+<footer>
+  جميع الحقوق محفوظة &copy; 2025
+</footer>
+<script>
+function contactForm(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const email=document.getElementById('email').value;
+  alert(`شكراً ${name}! تم استلام رسالتك.\nسوف نرد على: ${email}`);
+  document.getElementById('name').value='';
+  document.getElementById('email').value='';
+  document.getElementById('message').value='';
+}
+</script>
+</body>
+</html>
