@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السلة - متجر زيت الزيتون</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>السلة</h1>
+</header>
+<nav>
+  <a href="index.html">الرئيسية</a>
+  <a href="products.html">المنتجات</a>
+  <a href="cart.html">السلة</a>
+  <a href="contact.html">اتصل بنا</a>
+</nav>
+<div class="container">
+  <h2>سلتك</h2>
+  <ul id="cartItems"></ul>
+  <p>طريقة الدفع:</p>
+  <select id="paymentMethod">
+    <option value="cash">كاش عند التوصيل</option>
+    <option value="visa">فيزا</option>
+  </select>
+  <p id="totalPrice">إجمالي السعر: 0 جنيه</p>
+  <button onclick="checkout()">إرسال الطلب</button>
+</div>
+<footer>
+  جميع الحقوق محفوظة &copy; 2025
+</footer>
+<script>
+function displayCart(){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartItems = document.getElementById('cartItems');
+  const totalPrice = document.getElementById('totalPrice');
+  cartItems.innerHTML = '';
+  let total = 0;
+  cart.forEach((item,index)=>{
+    let li = document.createElement('li');
+    li.textContent = `${item.name} - ${item.price} جنيه`;
+    cartItems.appendChild(li);
+    total += item.price;
+  });
+  totalPrice.textContent = `إجمالي السعر: ${total} جنيه`;
+}
+function checkout(){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if(cart.length===0){ alert('السلة فارغة!'); return; }
+  let paymentMethod = document.getElementById('paymentMethod').value;
+  let total = cart.reduce((sum,i)=>sum+i.price,0);
+  alert(`تم إرسال الطلب!\nطريقة الدفع: ${paymentMethod}\nإجمالي السعر: ${total} جنيه\nالمنتجات:\n${cart.map(i=>i.name).join(', ')}`);
+  localStorage.removeItem('cart');
+  displayCart();
+}
+displayCart();
+</script>
+</body>
+</html>
