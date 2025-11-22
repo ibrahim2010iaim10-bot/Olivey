@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المنتجات - متجر زيت الزيتون</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>متجر زيت الزيتون</h1>
+</header>
+<nav>
+  <a href="index.html">الرئيسية</a>
+  <a href="products.html">المنتجات</a>
+  <a href="cart.html">السلة</a>
+  <a href="contact.html">اتصل بنا</a>
+</nav>
+<div class="container">
+  <h2>المنتجات</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/220x150" alt="زيت زيتون بكر ممتاز">
+      <h3>زيت زيتون بكر ممتاز</h3>
+      <p>سعر: 150 جنيه</p>
+      <button onclick="addToCart('زيت زيتون بكر ممتاز',150)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/220x150" alt="زيت زيتون عضوي">
+      <h3>زيت زيتون عضوي</h3>
+      <p>سعر: 200 جنيه</p>
+      <button onclick="addToCart('زيت زيتون عضوي',200)">أضف إلى السلة</button>
+    </div>
+  </div>
+</div>
+<footer>
+  جميع الحقوق محفوظة &copy; 2025
+</footer>
+<script>
+function addToCart(name, price){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({name, price});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('تمت إضافة المنتج للسلة!');
+}
+</script>
+</body>
+</html>
