@@ -60,3 +60,29 @@ nav a{
   border-radius:10px;
   box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
+/* Styles for order form */
+#orderForm{
+  background:white;
+  padding:20px;
+  margin:20px 0;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+  max-width:400px;
+}
+#orderForm input{
+  display:block;
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#orderForm button{
+  width:100%;
+  padding:10px;
+  background:#2d4b2d;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
