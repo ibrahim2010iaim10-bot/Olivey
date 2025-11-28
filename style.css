@@ -11,6 +11,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
 }
 nav a{
   color:white;
@@ -83,6 +84,36 @@ nav a{
   border-radius:5px;
 }
 #orderForm button{
+  width:100%;
+  padding:10px;
+  background:#2d4b2d;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.contact {
+  margin-top:5px;
+  font-weight:bold;
+  color:#fff;
+}
+.login-container{
+  max-width:400px;
+  margin:100px auto;
+  padding:20px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+  text-align:center;
+}
+.login-container input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+.login-container button{
   width:100%;
   padding:10px;
   background:#2d4b2d;
