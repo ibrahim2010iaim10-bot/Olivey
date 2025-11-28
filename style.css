@@ -1,55 +1,20 @@
-body {
-  font-family: sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 20px;
-}
-
-.title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#cart-container {
-  width: 90%;
-  max-width: 550px;
-  margin: auto;
-}
-
-.cart-item {
-  background: white;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.cart-img {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.info {
-  flex: 1;
-  margin-left: 10px;
-}
-
-.delete-btn {
-  background: #ff3b30;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.delete-btn:hover {
-  background: #d62a23;
-}
+/* نفس التنسيقات السابقة + contact + login-container */
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f3f3f3;}
+header{background:#2d4b2d;color:white;padding:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+nav a{color:white;margin-left:15px;text-decoration:none;font-weight:bold;}
+.hero{padding:60px;text-align:center;background:#e8f5e1;}
+.btn{background:#2d4b2d;color:white;padding:10px 20px;border:none;cursor:pointer;margin-top:10px;text-decoration:none;}
+.product-list{display:flex;flex-wrap:wrap;padding:20px;}
+.product{background:white;border-radius:10px;width:200px;padding:15px;margin:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+.product-img{width:100%;border-radius:10px;}
+.cart-container,.orders-container{padding:20px;}
+.order{background:white;padding:15px;margin:15px 0;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+.order h3,.order h4{margin:5px 0;}
+.order ul{padding-left:20px;}
+#orderForm{background:white;padding:20px;margin:20px 0;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.2);max-width:400px;}
+#orderForm input{display:block;width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px;}
+#orderForm button{width:100%;padding:10px;background:#2d4b2d;color:white;border:none;border-radius:5px;cursor:pointer;}
+.contact{margin-top:5px;font-weight:bold;color:#fff;}
+.login-container{max-width:400px;margin:100px auto;padding:20px;background:white;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.2);text-align:center;}
+.login-container input{width:100%;padding:10px;margin:10px 0;border-radius:5px;border:1px solid #ccc;}
+.login-container button{width:100%;padding:10px;background:#2d4b2d;color:white;border:none;border-radius:5px;cursor:pointer;}
