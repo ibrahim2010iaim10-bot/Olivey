@@ -81,21 +81,36 @@ if(form){
   });
 }
 
-// Load Orders in Admin
+// Load Orders in Admin - organized view
 async function loadOrders(){
-  const ordersDiv=document.getElementById("orders");
+  const ordersDiv = document.getElementById("orders");
   if(!ordersDiv) return;
 
   const snap = await getDocs(collection(db,"orders"));
-  snap.forEach(doc=>{
-    const data=doc.data();
-    ordersDiv.innerHTML += `<div class='order'><h3>Order</h3><pre>${JSON.stringify(data,null,2)}</pre></div>`;
+  const ordersArray = [];
+  snap.forEach(doc => ordersArray.push(doc.data()));
+
+  // Sort orders by date (newest first)
+  ordersArray.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  // Display each order
+  ordersArray.forEach(data => {
+    let orderHTML = `<div class='order'>
+      <h3>Customer: ${data.name}</h3>
+      <p>Phone: ${data.phone}</p>
+      <p>Address: ${data.address}</p>
+      <p>Ordered at: ${new Date(data.createdAt).toLocaleString()}</p>
+      <h4>Items:</h4>
+      <ul>`;
+    data.items.forEach(item => {
+      orderHTML += `<li>${item.name} - ${item.price} EGP</li>`;
+    });
+    orderHTML += `</ul></div>`;
+    ordersDiv.innerHTML += orderHTML;
   });
 }
 
 // Run functions
 loadProducts();
 loadCart();
-const checkoutBtn = document.getElementById("checkout");
-if(checkoutBtn) checkoutBtn.onclick = checkout;
 loadOrders();
