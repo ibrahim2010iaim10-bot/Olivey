@@ -22,7 +22,7 @@ const auth = getAuth();
 
 // Products
 const products = [
-  {name:"Extra Virgin Olive Oil 1L", price 450, img:"oil1.jpg"},
+  {name:"Extra Virgin Olive Oil 1L", price:450, img:"oil1.jpg"},
   {name:"Extra Virgin Olive Oil 5l", price:2200, img:"oil2.jpg"}
 ];
 
