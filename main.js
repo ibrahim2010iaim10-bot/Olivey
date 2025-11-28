@@ -57,18 +57,28 @@ function loadCart(){
   cartDiv.innerHTML = cart.map(c=>`<p>${c.name} - ${c.price} EGP</p>`).join("");
 }
 
-// Checkout
-async function checkout(){
-  let cart = JSON.parse(localStorage.getItem("cart")||"[]");
-  if(cart.length===0) return alert("Cart empty");
+// Checkout with customer details
+const form = document.getElementById('orderForm');
+if(form){
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
 
-  await addDoc(collection(db,"orders"),{
-    items: cart,
-    date: new Date().toISOString()
+    await addDoc(collection(db, "orders"), {
+      name,
+      phone,
+      address,
+      items: JSON.parse(localStorage.getItem("cart")||"[]"),
+      createdAt: new Date().toISOString()
+    });
+
+    alert("Order submitted!");
+    localStorage.removeItem("cart");
+    document.getElementById('cart').innerHTML = "";
+    form.reset();
   });
-
-  localStorage.removeItem("cart");
-  alert("Order placed!");
 }
 
 // Load Orders in Admin
