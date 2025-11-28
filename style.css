@@ -1,80 +1,62 @@
-body {
+body{
   font-family: Arial, sans-serif;
   margin:0;
   padding:0;
-  background: #f4f4f4;
-  color: #333;
+  background:#f3f3f3;
 }
-header {
-  background: #2e7d32;
-  color: white;
-  padding: 20px;
-  text-align: center;
+header{
+  background:#2d4b2d;
+  color:white;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-header h1 {
-  margin: 0;
+nav a{
+  color:white;
+  margin-left:15px;
+  text-decoration:none;
+  font-weight:bold;
 }
-nav {
-  text-align: center;
-  background: #66bb6a;
+.hero{
+  padding:60px;
+  text-align:center;
+  background:#e8f5e1;
 }
-nav a {
-  text-decoration: none;
-  color: white;
-  margin: 0 15px;
-  padding: 10px 0;
-  display: inline-block;
+.btn{
+  background:#2d4b2d;
+  color:white;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  margin-top:10px;
+  text-decoration:none;
 }
-nav a:hover {
-  background: #2e7d32;
-  border-radius: 5px;
+.product-list{
+  display:flex;
+  flex-wrap:wrap;
+  padding:20px;
 }
-.container {
-  padding: 20px;
+.product{
+  background:white;
+  border-radius:10px;
+  width:200px;
+  padding:15px;
+  margin:10px;
+  text-align:center;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.product-img{
+  width:100%;
+  border-radius:10px;
 }
-.product {
-  background: white;
-  border-radius: 10px;
-  margin: 15px;
-  padding: 15px;
-  width: 220px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+.cart-container, .orders-container{
+  padding:20px;
 }
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
-button {
-  background: #2e7d32;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-button:hover {
-  background: #1b5e20;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #2e7d32;
-  color: white;
-  margin-top: 20px;
-}
-@media screen and (max-width:600px){
-  .products{
-    flex-direction: column;
-    align-items:center;
-  }
-  .product{
-    width:90%;
-  }
+.order{
+  background:white;
+  padding:15px;
+  margin:10px 0;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
